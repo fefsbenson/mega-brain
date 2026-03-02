@@ -137,6 +137,11 @@
             "type": "command",
             "command": "python3 .claude/hooks/pipeline_checkpoint.py",
             "timeout": 5000
+          },
+          {
+            "type": "command",
+            "command": "python3 .claude/hooks/quality_gate_enforcer.py",
+            "timeout": 5000
           }
         ]
       },

@@ -14,6 +14,12 @@
 | `file-registry.schema.json` | `/system/REGISTRY/file-registry.json` | Registry de arquivos processados |
 | `decisions-registry.schema.json` | `/logs/SYSTEM/decisions-registry.json` | Decisões e precedentes |
 | `dna-mental-8-layer.schema.json` | `/knowledge/dna/persons/{PERSON}/DNA-MENTAL.json` | 8-layer cognitive architecture (DNA Mental) |
+| `viability-score.schema.json` | `/artifacts/triage/{SOURCE}-viability.yaml` | APEX viability scoring for pre-pipeline triage |
+| `quality-gate.schema.json` | - | Quality gate checkpoint definitions (9 gates) |
+| `fidelity-report.schema.json` | `/artifacts/validation/{CLONE}-fidelity.json` | Clone fidelity blind test results |
+| `mind-map.schema.json` | `/knowledge/mind-maps/{SOURCE}-map.json` | Cognitive mind map graph structure |
+| `debate-session.schema.json` | `/logs/council/DEBATE-{date}.json` | Enhanced debate session with scoring |
+| `workflow-module.schema.json` | - | Modular workflow component definition |
 
 ## Sistema de IDs Unificado
 

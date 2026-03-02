@@ -59,6 +59,24 @@ Diferente de Skills (user-facing), Tasks são MACHINE-ONLY.
 | TSK-031 | trigger-agent | agent_trigger.py | ✅ ACTIVE |
 | TSK-032 | trigger-dossier | dossier_trigger.py | ✅ ACTIVE |
 
+### TRIAGE TASKS
+
+| Task ID | Name | Script | Status |
+|---------|------|--------|--------|
+| TSK-050 | generate-blind-test | blind_test_generator.py | ✅ ACTIVE |
+| TSK-051 | evaluate-blind-test | - | ✅ ACTIVE |
+| TSK-060 | detect-brownfield | - | ✅ ACTIVE |
+| TSK-061 | diff-analysis | - | ✅ ACTIVE |
+
+### ACTIVATION TASKS
+
+| Task ID | Name | Script | Status |
+|---------|------|--------|--------|
+| TSK-070 | activate-clone | clone_resolver.py | ✅ ACTIVE |
+| TSK-071 | roundtable-session | - | ✅ ACTIVE |
+| TSK-080 | compile-system-prompt | - | ✅ ACTIVE |
+| TSK-090 | build-mind-map | edge_detector.py, graph_builder.py | ✅ ACTIVE |
+
 ### VALIDATION TASKS
 
 | Task ID | Name | Script | Status |

@@ -1,0 +1,45 @@
+# Clone Metadata Pattern
+# Used by brownfield pipeline to detect existing clones
+# Referenced by: core/protocols/brownfield-detection.md
+
+pattern:
+  id: clone-metadata
+  name: "Clone Metadata Detection"
+  version: "1.0.0"
+  description: "Pattern for detecting and fingerprinting existing mind clones"
+
+detection:
+  required_files:
+    - "AGENT.md"
+    - "SOUL.md"
+    - "DNA-CONFIG.yaml"
+  optional_files:
+    - "MEMORY.md"
+    - "SYSTEM-PROMPT.md"
+    - "COMM-PATTERNS.yaml"
+
+  search_paths:
+    - "agents/persons/{source_code}/"
+    - "agents/cargo/*/"
+
+fingerprint:
+  fields:
+    - path: "DNA-CONFIG.yaml"
+      key: "version"
+      description: "DNA version for diff comparison"
+    - path: "DNA-CONFIG.yaml"
+      key: "dna_sources"
+      description: "List of processed sources"
+    - path: "AGENT.md"
+      key: "last_updated"
+      description: "Last modification timestamp"
+    - path: "MEMORY.md"
+      key: "insight_count"
+      description: "Number of accumulated insights"
+
+diff_strategy:
+  compare:
+    - "DNA layer element counts"
+    - "Source list additions"
+    - "Memory insight delta"
+  output: "artifacts/brownfield/{source_code}-diff.json"
