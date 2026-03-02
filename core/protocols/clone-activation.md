@@ -72,7 +72,6 @@
 |                                                                             |
 |  2. LOCATE the clone directory                                              |
 |     +-- Primary: agents/minds/{CLONE_ID}/                                   |
-|     +-- Fallback: agents/persons/{CLONE_NAME}/                              |
 |                                                                             |
 |  3. VERIFY required files exist                                             |
 |     +-- SOUL.md          (REQUIRED - activation fails without it)           |
@@ -125,7 +124,7 @@
 |  | Read COMPLETE file. This is the clone's knowledge architecture.         | |
 |  |                                                                         | |
 |  | Extract and internalize:                                                | |
-|  | +-- 5-layer DNA structure (L1-L5)                                       | |
+|  | +-- 8-layer DNA structure (L1-L8)                                       | |
 |  | +-- Source weights and priorities                                        | |
 |  | +-- Domain coverage map                                                 | |
 |  | +-- Total chunks/insights available                                     | |

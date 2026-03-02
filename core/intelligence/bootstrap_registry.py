@@ -199,7 +199,7 @@ def bootstrap_persons(registry):
         for k in persons:
             if normalize_text(k) == normalize_text(canonical):
                 persons[k]["has_agent"] = True
-                persons[k]["agent_path"] = f"agents/persons/{agent_slug}/"
+                persons[k]["agent_path"] = f"agents/minds/{agent_slug}/"
                 break
 
     # 4. Mark has_dossier from existing person dossiers

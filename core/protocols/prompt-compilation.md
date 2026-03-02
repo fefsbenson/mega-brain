@@ -237,7 +237,7 @@ Verify that every L3 heuristic and L5 methodology appears in at least one output
 Compiled prompts are saved alongside the agent's existing files:
 
 ```
-agents/persons/{{person-name}}/
+agents/minds/{{person-name}}/
 ├── AGENT.md                              # Existing
 ├── SOUL.md                               # Existing
 ├── MEMORY.md                             # Existing

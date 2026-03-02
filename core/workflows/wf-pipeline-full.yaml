@@ -120,7 +120,7 @@ workflow:
         blocking: true
         validation:
           - "dna_complete"
-          - "all_5_layers_populated"
+          - "all_8_layers_populated"
 
     - id: phase_4
       name: "PIPELINE"
@@ -211,9 +211,9 @@ workflow:
       location: "logs/batches/"
     - name: dna_config
       type: file
-      location: "agents/persons/{source}/DNA-CONFIG.yaml"
+      location: "agents/minds/{source}/DNA-CONFIG.yaml"
     - name: validation_report
       type: json
     - name: system_prompt
       type: file
-      location: "agents/persons/{source}/SYSTEM-PROMPT.md"
+      location: "agents/minds/{source}/SYSTEM-PROMPT.md"

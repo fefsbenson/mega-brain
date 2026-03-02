@@ -24,8 +24,8 @@ A brownfield scenario is confirmed when ALL of the following are true:
 
 | # | Condition | Check |
 |---|-----------|-------|
-| 1 | Clone exists | `agents/persons/{source}/` directory exists |
-| 2 | DNA is complete | `agents/persons/{source}/DNA-CONFIG.yaml` exists and is valid YAML |
+| 1 | Clone exists | `agents/minds/{source}/` directory exists |
+| 2 | DNA is complete | `agents/minds/{source}/DNA-CONFIG.yaml` exists and is valid YAML |
 | 3 | Pipeline completed | `metadata.yaml` contains `pipeline_status: completed` |
 | 4 | All 5 layers present | DNA-CONFIG.yaml has non-empty L1 through L5 |
 
@@ -38,7 +38,7 @@ NEW SOURCE MATERIAL ARRIVES
          │
          ▼
     ┌────────────────────────────┐
-    │ Does agents/persons/{src}/ │
+    │ Does agents/minds/{src}/ │
     │ directory exist?           │
     └────────────┬───────────────┘
                  │
@@ -47,7 +47,7 @@ NEW SOURCE MATERIAL ARRIVES
          ▼               ▼
     GREENFIELD      ┌────────────────────────────┐
     (wf-pipeline-   │ Does DNA-CONFIG.yaml exist │
-     full)          │ and contain all 5 layers?  │
+     full)          │ and contain all 8 layers?  │
                     └────────────┬───────────────┘
                                  │
                          ┌───────┴───────┐
@@ -77,11 +77,11 @@ complete snapshot for rollback capability.
 
 | Artifact | Source Location | Snapshot Location |
 |----------|----------------|-------------------|
-| DNA-CONFIG.yaml | `agents/persons/{src}/DNA-CONFIG.yaml` | `artifacts/brownfield/snapshots/{src}/DNA-CONFIG.yaml` |
-| SOUL.md | `agents/persons/{src}/SOUL.md` | `artifacts/brownfield/snapshots/{src}/SOUL.md` |
-| MEMORY.md | `agents/persons/{src}/MEMORY.md` | `artifacts/brownfield/snapshots/{src}/MEMORY.md` |
-| AGENT.md | `agents/persons/{src}/AGENT.md` | `artifacts/brownfield/snapshots/{src}/AGENT.md` |
-| metadata.yaml | `agents/persons/{src}/metadata.yaml` | `artifacts/brownfield/snapshots/{src}/metadata.yaml` |
+| DNA-CONFIG.yaml | `agents/minds/{src}/DNA-CONFIG.yaml` | `artifacts/brownfield/snapshots/{src}/DNA-CONFIG.yaml` |
+| SOUL.md | `agents/minds/{src}/SOUL.md` | `artifacts/brownfield/snapshots/{src}/SOUL.md` |
+| MEMORY.md | `agents/minds/{src}/MEMORY.md` | `artifacts/brownfield/snapshots/{src}/MEMORY.md` |
+| AGENT.md | `agents/minds/{src}/AGENT.md` | `artifacts/brownfield/snapshots/{src}/AGENT.md` |
+| metadata.yaml | `agents/minds/{src}/metadata.yaml` | `artifacts/brownfield/snapshots/{src}/metadata.yaml` |
 
 ### 2.2 Snapshot Naming
 
@@ -198,7 +198,7 @@ Automatic rollback is triggered when ANY of these conditions occur during regres
 | 2 | Items removed | Any pre-existing DNA item missing from merged result |
 | 3 | L1 instability | Core philosophy items changed semantically |
 | 4 | YAML corruption | Merged DNA-CONFIG.yaml fails validation |
-| 5 | Layer missing | Any of 5 layers empty after merge |
+| 5 | Layer missing | Any of 8 layers empty after merge |
 
 ### 4.2 Rollback Procedure
 
@@ -284,7 +284,7 @@ total_brownfield_updates: 1
 
 | Metric | Greenfield | Brownfield | Savings |
 |--------|-----------|------------|---------|
-| Layers processed | 5 (all) | 1-3 (affected only) | 40-80% |
+| Layers processed | 8 (all) | 1-3 (affected only) | 40-80% |
 | Token usage | 100% baseline | 25-40% of baseline | 60-75% |
 | Time | 100% baseline | 30-50% of baseline | 50-70% |
 | Snapshot overhead | N/A | ~2% additional | Negligible |

@@ -19,7 +19,7 @@ detection:
     - "COMM-PATTERNS.yaml"
 
   search_paths:
-    - "agents/persons/{source_code}/"
+    - "agents/minds/{source_code}/"
     - "agents/cargo/*/"
 
 fingerprint:

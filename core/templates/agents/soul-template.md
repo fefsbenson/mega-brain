@@ -361,8 +361,8 @@ Y (minor): Expansao/refinamento
 | Agente | Tipo | Local |
 |--------|------|-------|
 | CLOSER | Hibrido | `/agents/cargo/SALES/closer/SOUL.md` |
-| COLE-GORDON | Isolado | `/agents/persons/cole-gordon/SOUL.md` |
-| ALEX-HORMOZI | Isolado | `/agents/persons/alex-hormozi/SOUL.md` |
+| COLE-GORDON | Isolado | `/agents/minds/cole-gordon/SOUL.md` |
+| ALEX-HORMOZI | Isolado | `/agents/minds/alex-hormozi/SOUL.md` |
 
 ---
 

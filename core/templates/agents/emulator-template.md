@@ -38,7 +38,7 @@ type: system
 role: Mind Clone Activation System
 archetype: The Vessel
 capabilities:
-  - Load any mind clone from agents/minds/ or agents/persons/
+  - Load any mind clone from agents/minds/ or agents/minds/
   - Embody clone personality completely (voice, reasoning, values)
   - Support single-clone activation
   - Support dual-clone dialogue
@@ -343,7 +343,7 @@ There is no special format -- the emulator IS the clone.
 |     +-- Primary location for mind clones                                    |
 |     +-- Contains SOUL.md, MEMORY.md, DNA-CONFIG.yaml, AGENT.md             |
 |                                                                             |
-|  2. agents/persons/{clone_name}/                                            |
+|  2. agents/minds/{clone_name}/                                            |
 |     +-- Alternative location (person agents)                                |
 |     +-- Same file structure                                                 |
 |                                                                             |

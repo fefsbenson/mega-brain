@@ -4,7 +4,7 @@
 Usage: python3 clone_resolver.py <name_query>
 
 Resolves human-friendly names to agent directory paths.
-Searches agents/persons/ and agents/cargo/ directories.
+Searches agents/minds/ and agents/cargo/ directories.
 """
 import sys
 from pathlib import Path
@@ -20,7 +20,7 @@ def resolve_clone(query: str) -> dict | None:
     query_lower = query.strip().lower()
     candidates = []
 
-    for agent_type in ["persons", "cargo"]:
+    for agent_type in ["minds", "cargo"]:
         agent_dir = AGENTS_ROOT / agent_type
         if not agent_dir.exists():
             continue

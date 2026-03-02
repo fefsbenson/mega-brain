@@ -51,9 +51,9 @@ responsible: "@jarvis"
 
 **Quality Gate:** QG-BF-001
 
-1. Check if `agents/persons/{source_code}/` directory exists
-2. Check if `agents/persons/{source_code}/DNA-CONFIG.yaml` exists
-3. Check if `agents/persons/{source_code}/metadata.yaml` exists
+1. Check if `agents/minds/{source_code}/` directory exists
+2. Check if `agents/minds/{source_code}/DNA-CONFIG.yaml` exists
+3. Check if `agents/minds/{source_code}/metadata.yaml` exists
 4. If ANY check fails, set `brownfield_confirmed = false` and HALT (greenfield path)
 
 ### Phase 2: Completeness Validation
@@ -95,7 +95,7 @@ responsible: "@jarvis"
      "brownfield_confirmed": true,
      "detection_timestamp": "2026-02-28T14:00:00Z",
      "existing_clone": {
-       "dna_path": "agents/persons/cole-gordon/DNA-CONFIG.yaml",
+       "dna_path": "agents/minds/cole-gordon/DNA-CONFIG.yaml",
        "layer_counts": {"L1": 12, "L2": 8, "L3": 22, "L4": 15, "L5": 9},
        "total_items": 66,
        "pipeline_status": "completed",
