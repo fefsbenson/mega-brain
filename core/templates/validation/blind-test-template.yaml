@@ -31,10 +31,10 @@ metadata:
 clone_info:
   clone_id: ""           # e.g., "ALEX-HORMOZI"
   clone_name: ""         # e.g., "Alex Hormozi"
-  agent_path: ""         # e.g., "agents/persons/ALEX-HORMOZI/"
-  soul_path: ""          # e.g., "agents/persons/ALEX-HORMOZI/SOUL.md"
-  memory_path: ""        # e.g., "agents/persons/ALEX-HORMOZI/MEMORY.md"
-  dna_config_path: ""    # e.g., "agents/persons/ALEX-HORMOZI/DNA-CONFIG.yaml"
+  agent_path: ""         # e.g., "agents/minds/ALEX-HORMOZI/"
+  soul_path: ""          # e.g., "agents/minds/ALEX-HORMOZI/SOUL.md"
+  memory_path: ""        # e.g., "agents/minds/ALEX-HORMOZI/MEMORY.md"
+  dna_config_path: ""    # e.g., "agents/minds/ALEX-HORMOZI/DNA-CONFIG.yaml"
   clone_version: ""      # Version of AGENT.md at time of test generation
   previous_fidelity: null  # Previous fidelity score if exists, null if first test
 

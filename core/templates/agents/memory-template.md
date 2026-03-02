@@ -89,7 +89,7 @@ MEMORY.md → chunk_id → CHUNKS-STATE.json → source_file → inbox/*.txt
 │  MEMORY DE AGENTE SOLO (PESSOA)                                             │
 │  ───────────────────────────────                                            │
 │                                                                             │
-│  Localização: /agents/persons/{PESSOA}/MEMORY.md                        │
+│  Localização: /agents/minds/{PESSOA}/MEMORY.md                        │
 │                                                                             │
 │  CONTÉM:                                                                    │
 │  • Insights extraídos das fontes processadas                               │

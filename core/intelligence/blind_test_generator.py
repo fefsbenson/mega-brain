@@ -498,7 +498,7 @@ def main():
         print("\n=== BLIND TEST GENERATOR v1.0 ===\n")
         persons_dir = AGENTS_ROOT / "persons"
         if not persons_dir.exists():
-            print("  No agents/persons/ directory found.")
+            print("  No agents/minds/ directory found.")
             sys.exit(1)
 
         for agent_dir in sorted(persons_dir.iterdir()):

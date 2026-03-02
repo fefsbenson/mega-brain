@@ -151,6 +151,33 @@ workflow:
               existing_items: "${phase_1.existing_dna.L5}"
               new_content: "${new_files}"
             condition: "${phase_2.affected_layers contains 'L5'}"
+        - execute:
+            task: "tasks/extract-dna.md"
+            inputs:
+              layer: "L6"
+              focus: "real examples, applied knowledge"
+              mode: "incremental"
+              existing_items: "${phase_1.existing_dna.L6}"
+              new_content: "${new_files}"
+            condition: "${phase_2.affected_layers contains 'L6'}"
+        - execute:
+            task: "tasks/extract-dna.md"
+            inputs:
+              layer: "L7"
+              focus: "what NOT to do, failure modes"
+              mode: "incremental"
+              existing_items: "${phase_1.existing_dna.L7}"
+              new_content: "${new_files}"
+            condition: "${phase_2.affected_layers contains 'L7'}"
+        - execute:
+            task: "tasks/extract-dna.md"
+            inputs:
+              layer: "L8"
+              focus: "when to apply each element"
+              mode: "incremental"
+              existing_items: "${phase_1.existing_dna.L8}"
+              new_content: "${new_files}"
+            condition: "${phase_2.affected_layers contains 'L8'}"
       checkpoint:
         id: CP_SELECTIVE
         blocking: true
@@ -187,7 +214,7 @@ workflow:
         blocking: true
         validation:
           - "merged_dna_valid_yaml"
-          - "all_5_layers_present"
+          - "all_8_layers_present"
           - "item_count_gte_previous"
           - "contradictions_flagged_not_suppressed"
 
@@ -204,7 +231,7 @@ workflow:
             description: >
               Regression checks:
               1. No existing items were removed (only added/reinforced)
-              2. Layer structure is intact (all 5 layers)
+              2. Layer structure is intact (all 8 layers)
               3. Source citations preserved for all pre-existing items
               4. No semantic drift in core philosophies (L1 stability check)
               5. Agent SOUL.md still consistent with updated DNA
@@ -308,7 +335,7 @@ workflow:
   outputs:
     - name: updated_dna
       type: file
-      location: "agents/persons/{source}/DNA-CONFIG.yaml"
+      location: "agents/minds/{source}/DNA-CONFIG.yaml"
     - name: diff_report
       type: json
       location: "artifacts/brownfield/diffs/${source_code}/"

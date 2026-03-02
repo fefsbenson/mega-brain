@@ -76,8 +76,8 @@ Test cases MUST be derived from documented source material:
 |  PRIMARY (required):                                                         |
 |  - inbox/{PERSON}/ transcriptions (raw material)                             |
 |  - knowledge/dna/persons/{PERSON}/ (structured DNA)                          |
-|  - agents/persons/{PERSON}/SOUL.md (identity/voice)                          |
-|  - agents/persons/{PERSON}/MEMORY.md (accumulated experience)                |
+|  - agents/minds/{PERSON}/SOUL.md (identity/voice)                          |
+|  - agents/minds/{PERSON}/MEMORY.md (accumulated experience)                |
 |                                                                              |
 |  SECONDARY (recommended):                                                    |
 |  - Published books, interviews, social media posts                           |

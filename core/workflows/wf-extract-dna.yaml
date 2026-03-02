@@ -5,7 +5,7 @@
 workflow:
   id: wf-extract-dna
   name: "Cognitive DNA Extraction"
-  description: "Extrai DNA Cognitivo (5 camadas) de uma fonte"
+  description: "Extrai DNA Cognitivo (8 camadas) de uma fonte"
   version: "1.0.0"
 
   orchestrator: "@jarvis"
@@ -111,13 +111,52 @@ workflow:
         blocking: true
 
     - id: phase_7
+      name: "L6_CASE_STUDIES"
+      description: "Extrair camada L6 - Estudos de Caso"
+      steps:
+        - execute:
+            task: "tasks/extract-dna.md"
+            inputs:
+              layer: "L6"
+              focus: "real examples, applied knowledge"
+      checkpoint:
+        id: CP_L6
+        blocking: true
+
+    - id: phase_8
+      name: "L7_ANTI_PATTERNS"
+      description: "Extrair camada L7 - Anti-Padrões"
+      steps:
+        - execute:
+            task: "tasks/extract-dna.md"
+            inputs:
+              layer: "L7"
+              focus: "what NOT to do, failure modes"
+      checkpoint:
+        id: CP_L7
+        blocking: true
+
+    - id: phase_9
+      name: "L8_CONTEXTUAL_TRIGGERS"
+      description: "Extrair camada L8 - Gatilhos Contextuais"
+      steps:
+        - execute:
+            task: "tasks/extract-dna.md"
+            inputs:
+              layer: "L8"
+              focus: "when to apply each element"
+      checkpoint:
+        id: CP_L8
+        blocking: true
+
+    - id: phase_10
       name: "ASSEMBLY"
       description: "Montar DNA-CONFIG.yaml final"
       steps:
         - execute:
             command: "assemble_dna_config"
             inputs:
-              layers: ["L1", "L2", "L3", "L4", "L5"]
+              layers: ["L1", "L2", "L3", "L4", "L5", "L6", "L7", "L8"]
               source_name: "${source_name}"
         - execute:
             command: "validate_yaml"
@@ -126,7 +165,7 @@ workflow:
         blocking: true
         validation:
           - "valid_yaml"
-          - "all_5_layers_present"
+          - "all_8_layers_present"
 
   transitions:
     - from: phase_1
@@ -147,11 +186,20 @@ workflow:
     - from: phase_6
       to: phase_7
       condition: "l5_extracted"
+    - from: phase_7
+      to: phase_8
+      condition: "l6_extracted"
+    - from: phase_8
+      to: phase_9
+      condition: "l7_extracted"
+    - from: phase_9
+      to: phase_10
+      condition: "l8_extracted"
 
   outputs:
     - name: dna_config
       type: file
-      location: "agents/persons/${source_name}/DNA-CONFIG.yaml"
+      location: "agents/minds/${source_name}/DNA-CONFIG.yaml"
     - name: layer_counts
       type: json
     - name: source_citations

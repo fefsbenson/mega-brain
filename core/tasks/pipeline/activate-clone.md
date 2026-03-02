@@ -55,7 +55,7 @@ responsible: "@jarvis"
 1. Parse the activation command to extract clone_id and mode
 2. Search for clone directory in this order:
    - `agents/minds/{clone_id}/`
-   - `agents/persons/{clone_id}/`
+   - `agents/minds/{clone_id}/`
    - `agents/cargo/*/{clone_id}/`
 3. If clone_id is ambiguous (e.g., "alex"), list candidates and ask for clarification
 4. Verify that all three required files exist in the clone directory:

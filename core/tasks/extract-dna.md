@@ -38,7 +38,7 @@ responsible: "@jarvis"
 
 | Output | Type | Location | Description |
 |--------|------|----------|-------------|
-| dna_config | yaml | agents/persons/{name}/DNA-CONFIG.yaml | 5-layer DNA structure |
+| dna_config | yaml | agents/minds/{name}/DNA-CONFIG.yaml | 5-layer DNA structure |
 | layer_counts | json | return value | Count per layer |
 
 ---

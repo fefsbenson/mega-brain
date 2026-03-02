@@ -32,8 +32,8 @@ responsible: "@jarvis"
 
 | Output | Type | Location | Description |
 |--------|------|----------|-------------|
-| system_prompt | md | agents/persons/{source}/SYSTEM-PROMPT.md | Compiled prompt |
-| comm_patterns | yaml | agents/persons/{source}/COMM-PATTERNS.yaml | Communication patterns |
+| system_prompt | md | agents/minds/{source}/SYSTEM-PROMPT.md | Compiled prompt |
+| comm_patterns | yaml | agents/minds/{source}/COMM-PATTERNS.yaml | Communication patterns |
 
 ## Execution
 
