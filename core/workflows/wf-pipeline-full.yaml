@@ -1,12 +1,12 @@
 # MEGA BRAIN - FULL PIPELINE WORKFLOW
 # Padrão: Pedro (aios-core/squad-creator)
-# Versão: 1.0.0
+# Versão: 2.0.0
 
 workflow:
   id: wf-pipeline-full
   name: "Full Pipeline Processing"
-  description: "Executa pipeline completo: ingest → process → enrich"
-  version: "1.0.0"
+  description: "Executa pipeline completo: triage → ingest → process → enrich → compile"
+  version: "2.0.0"
 
   # Orchestrator
   orchestrator: "@jarvis"
@@ -21,9 +21,57 @@ workflow:
       type: array
       required: true
       description: "Lista de arquivos a processar"
+    - name: skip_triage
+      type: boolean
+      required: false
+      default: false
+      description: "Skip phase_0 triage (for known-good sources)"
+    - name: brownfield
+      type: boolean
+      required: false
+      default: false
+      description: "Brownfield mode - incremental update of existing clone"
 
   # Phases
   phases:
+    - id: phase_0
+      name: "TRIAGE"
+      description: "Pre-pipeline viability scoring (APEX)"
+      blocking: false
+      steps:
+        - execute:
+            task: "tasks/score-viability.md"
+            inputs:
+              source_code: "${source_code}"
+              files: "${files}"
+      checkpoint:
+        id: CP_TRIAGE
+        blocking: false
+        validation:
+          - "viability_score_calculated"
+          - "verdict_assigned"
+
+    - id: phase_0b
+      name: "BROWNFIELD_CHECK"
+      description: "Detect existing clone and compute diff (if brownfield mode)"
+      condition: "${brownfield} == true"
+      steps:
+        - execute:
+            task: "tasks/pipeline/detect-brownfield.md"
+            inputs:
+              source_code: "${source_code}"
+        - execute:
+            task: "tasks/pipeline/diff-analysis.md"
+            inputs:
+              source_code: "${source_code}"
+              files: "${files}"
+      checkpoint:
+        id: CP_BROWNFIELD
+        blocking: true
+        validation:
+          - "existing_clone_detected"
+          - "diff_computed"
+
     - id: phase_1
       name: "FOUNDATION"
       description: "Preparação e normalização"
@@ -102,11 +150,38 @@ workflow:
       checkpoint:
         id: CP_VALIDATION
         blocking: true
+        gate_id: "QG-VALIDATION-001"
         validation:
           - "status_passed"
 
+    - id: phase_6
+      name: "COMPILATION"
+      description: "Compile DNA into deployable system prompt"
+      blocking: false
+      steps:
+        - execute:
+            task: "tasks/compile-system-prompt.md"
+            inputs:
+              source_code: "${source_code}"
+              dna_config: "${phase_3.dna_config}"
+      checkpoint:
+        id: CP_COMPILATION
+        blocking: false
+        validation:
+          - "system_prompt_generated"
+          - "communication_patterns_applied"
+
   # Transitions
   transitions:
+    - from: phase_0
+      to: phase_0b
+      condition: "${brownfield} == true"
+    - from: phase_0
+      to: phase_1
+      condition: "viability_verdict != REJECT"
+    - from: phase_0b
+      to: phase_1
+      condition: "checkpoint_passed"
     - from: phase_1
       to: phase_2
       condition: "checkpoint_passed"
@@ -118,6 +193,9 @@ workflow:
       condition: "checkpoint_passed"
     - from: phase_4
       to: phase_5
+      condition: "checkpoint_passed"
+    - from: phase_5
+      to: phase_6
       condition: "checkpoint_passed"
 
   # Error handling
@@ -136,3 +214,6 @@ workflow:
       location: "agents/persons/{source}/DNA-CONFIG.yaml"
     - name: validation_report
       type: json
+    - name: system_prompt
+      type: file
+      location: "agents/persons/{source}/SYSTEM-PROMPT.md"
