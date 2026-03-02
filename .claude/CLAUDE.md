@@ -61,7 +61,7 @@ When in plan mode, save the plan file to: `docs/plans/YYYY-MM-DD-description.md`
 | Pipeline Processing | - | yes |
 | Council / Conclave | - | yes |
 
-## DNA Schema (5 Knowledge Layers)
+## DNA Schema (8 Knowledge Layers)
 
 | Layer | Name | Description |
 |-------|------|-------------|
@@ -70,6 +70,9 @@ When in plan mode, save the plan file to: `docs/plans/YYYY-MM-DD-description.md`
 | L3 | HEURISTICS | Practical rules and decision shortcuts |
 | L4 | FRAMEWORKS | Structured methodologies and processes |
 | L5 | METHODOLOGIES | Step-by-step implementations |
+| L6 | CASE-STUDIES | Real examples and applied knowledge |
+| L7 | ANTI-PATTERNS | What NOT to do and failure modes |
+| L8 | CONTEXTUAL-TRIGGERS | When to apply each element |
 
 ## Commands
 

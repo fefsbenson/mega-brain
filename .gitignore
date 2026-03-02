@@ -7,6 +7,9 @@ research/
 bilhon/
 .bilhon/
 
+# === SQUADS (Per-user project workspaces, L3) ===
+squads/
+
 # === ENVIRONMENT & SECRETS ===
 .env
 .env.local
